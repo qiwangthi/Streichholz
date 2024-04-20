@@ -9,20 +9,24 @@ public class Spiel {
 
     // oeffentliche Methoden
     public void computerZiehen() {
+        anzahl -= 1;
     }
 
     public void spielerZiehen() {
+        anzahl -= 1;
     }
 
     private void berechneComputerZug() {
+
     }
 
     // ziehen der Spieler und computer abwechselnd solange anzahl > 0
-    public void spielen(){
-        while(this.anzahl > 0){
+    public void spielen() {
+        while (this.anzahl > 0) {
             spielerZiehen();
             computerZiehen();
         }
+    }
 
     // getter
     public int getAnzahl() {

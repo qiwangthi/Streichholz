@@ -3,8 +3,9 @@ public class App {
 
         Spiel round1 = new Spiel(20);
 
-        public void computerZiehen(){}<,
-            
-        
+        Ausgabe.menschZug(2, 15);
+
+        Ausgabe.computerZug(3, 10);
+
     }
 }

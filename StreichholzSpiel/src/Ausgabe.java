@@ -6,9 +6,10 @@ public class Ausgabe {
         System.out.println("Bitte geben Sie eine Zahl zwischen 1 und 3 ein: ");
     }
 
-    // informiert den Anwender, dass es sich bei der Eingabe um keine Zahl handelt
+    // Eingabe ist keine Zahl,methode mit bedingung
     public void keineZahl() {
         System.out.println("Das ist keine Zahl!");
+
     }
 
     // informiert den Anwender, dass die Zahl nicht im gültigen Bereich (zwischen 1
@@ -39,7 +40,18 @@ public class Ausgabe {
         System.out.println("Es liegen " + anzahl + " Hoelzer auf dem Tisch.");
     }
 
-    // berichtet über den Zug des menschlichen Spieler,
+    // berichtet über den Zug des menschlichen Spieler: Die Zahl der gezogenen
+    // Hölzer und die verbleibende Anzahl auf dem Tisch
+    public void menschZug(int zahl, int verbleibend) {
+        System.out.println("Sie nehmen " + zahl + " Hoelzer und es bleiben noch" + verbleibend + " Hoelzer uebrig.");
+
+    }
+
+    // Zug des Computers
+    public void computerZug(int zahl, int verbleibend) {
+        System.out.println(
+                "Der Computer nimmt " + zahl + " Hoelzer und es bleiben noch" + verbleibend + " Hoelzer uebrig.");
+    }
 }
 
 }}
