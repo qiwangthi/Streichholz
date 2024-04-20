@@ -1,7 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Spiel round1 = new Spiel(20);
+        Spiel round1 = new Spiel(18);
 
         Ausgabe.menschZug(2, 15);
 

@@ -8,13 +8,13 @@ public class Ausgabe {
     }
 
     // gibt aus, dass die Eingabe keine Zahl war
-    public void keineZahl() {
+    public static void keineZahl() {
         System.out.println("Das war keine Zahl!");
     }
 
     // informiert den Anwender, dass die Zahl nicht im gültigen Bereich (zwischen 1
     // und 3) liegt.
-    public void zahlNichtImBereich() {
+    public static void zahlNichtImBereich() {
         System.out.println("Die Zahl liegt nicht im gueltigen Bereich!");
     }
 
