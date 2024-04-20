@@ -1,0 +1,28 @@
+public class Eingabe() {
+    public static void leseZahl() {
+        // LIEST EINE ZAHL VON DER KONSOLE EIN UND BIT DISE ALS INT-WERT ZURÜCK 
+        Scanner scanner = new Scanner(System.in);  // Scanner-Objekt erzeugen
+        Ausgabe.zahlEingeben();  // Aufforderung zur Eingabe
+        int zahl = scanner.nextInt();  // Eingegebene Zahl lesen    
+        return zahl;  // Eingegebene Zahl zurückgeben
+
+        // try catch block,mit hilfe der Klasse Integer in einen int umgewandelt.schlägt die umwandlung fehl, wird der Anwender durch den aufruf der Methode keinezahl der klasse ausgabe darübe informiert
+        // der anwender wird solange zur eingabe einer zahl aufgefordert, bis er eine zahl eingibt
+
+        try {
+            int zahl = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            Ausgabe.keineZahl();
+            return leseZahl();
+        }
+
+        public static void leseHoelzer(int zahl) {
+            lesseZhal();
+            if (zahl != 1, zahl != 2, zahl != 3) {
+                Ausgabe.zahlNichtImBereich();
+                return leseZahl();}
+            else {
+                return zahl;
+            }
+        }
+    }

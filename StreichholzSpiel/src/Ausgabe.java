@@ -2,14 +2,14 @@ public class Ausgabe {
     public static void main(String[] args) {
 
     // fordert den Anwender auf der Konsole auf, eine Zahl einzugeben
-    public void zahlEingeben() {
+    public static void zahlEingeben(int zahl) {
         System.out.println("Bitte geben Sie eine Zahl zwischen 1 und 3 ein: ");
+
     }
 
-    // Eingabe ist keine Zahl,methode mit bedingung
+    // gibt aus, dass die Eingabe keine Zahl war
     public void keineZahl() {
-        System.out.println("Das ist keine Zahl!");
-
+        System.out.println("Das war keine Zahl!");
     }
 
     // informiert den Anwender, dass die Zahl nicht im gültigen Bereich (zwischen 1
@@ -42,16 +42,15 @@ public class Ausgabe {
 
     // berichtet über den Zug des menschlichen Spieler: Die Zahl der gezogenen
     // Hölzer und die verbleibende Anzahl auf dem Tisch
-    public void menschZug(int zahl, int verbleibend) {
+    public static void menschZug(int zahl, int verbleibend) {
         System.out.println("Sie nehmen " + zahl + " Hoelzer und es bleiben noch" + verbleibend + " Hoelzer uebrig.");
 
     }
 
     // Zug des Computers
-    public void computerZug(int zahl, int verbleibend) {
+    public static void computerZug(int zahl, int verbleibend) {
         System.out.println(
                 "Der Computer nimmt " + zahl + " Hoelzer und es bleiben noch" + verbleibend + " Hoelzer uebrig.");
     }
-}
 
-}}
+}

@@ -20,9 +20,9 @@ public class Spiel {
 
     }
 
-    // ziehen der Spieler und computer abwechselnd solange anzahl > 0
+    // ziehen der Spieler und computer abwechselnd bis 1 Streichholz uebrig ist
     public void spielen() {
-        while (this.anzahl > 0) {
+        while (anzahl > 1) {
             spielerZiehen();
             computerZiehen();
         }
