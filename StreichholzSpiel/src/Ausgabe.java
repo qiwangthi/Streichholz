@@ -43,14 +43,14 @@ public class Ausgabe {
     // berichtet über den Zug des menschlichen Spieler: Die Zahl der gezogenen
     // Hölzer und die verbleibende Anzahl auf dem Tisch
     public static void menschZug(int menschZug, int anzahl) {
-        anzahl -= menschZug;
+        // anzahl -= menschZug;
         System.out.println("Sie nehmen " + menschZug + " Hoelzer und es bleiben noch" + anzahl + " Hoelzer uebrig.");
 
     }
 
     // Zug des Computers
     public static void computerZug(int computerZug, int anzahl) {
-        anzahl -= computerZug;
+        // anzahl -= computerZug;
         System.out.println(
                 "Der Computer nimmt " + computerZug + " Hoelzer und es bleiben noch" + anzahl + " Hoelzer uebrig.");
     }

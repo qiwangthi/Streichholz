@@ -1,31 +1,37 @@
 import java.util.Scanner;
 
 public class Eingabe {
-    public static int leseZahl(int menschlicherZug) {
-        // LIEST EINE ZAHL VON DER KONSOLE EIN UND BIT DISE ALS INT-WERT ZURÜCK
-        Scanner scanner = new Scanner(System.in); // Scanner-Objekt erzeugen
+    static int menschZug = 0; // Variable für die eingegebene Zahl
+
+    public static int leseZahl() {
+
+        // LIEST EINE ZAHL VON DER KONSOLE EIN UND GIBT DIESE ALS INT-WERT ZURÜCK
         Ausgabe.zahlEingeben(); // Ausgabe, dass eine Zahl eingegeben werden soll
-        while(true){
-            try {
-           menschlicherZug = Integer.parseInt(scanner.nextLine()); // Assign the parsed integer value directly to the existing
-                                                         // "zahl" variable
-        } catch (NumberFormatException e) {
-            Ausgabe.keineZahl(); // Ausgabe, dass keine Zahl eingegeben wurde
-            return leseZahl(int menschlicherZug); // Rekursiver Aufruf der Methode, um eine Zahl zu erhalten
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (true) { // Repeat until a valid number is entered
+                if (scanner.hasNextInt()) { // Check if the input is an integer
+                    menschZug = scanner.nextInt(); // Assign the input to the variable
+
+                    break; // Exit the loop
+                } else {
+                    Ausgabe.keineZahl(); // Ausgabe, dass keine Zahl eingegeben wurde
+                    scanner.nextLine(); // Clear the invalid input
+                }
+
+            }
         }
-        scanner.close(); // Close the Scanner object to prevent resource leak
-        return menschlicherZug; // Eingegebene Zahl zurückgeben
+
+        return menschZug; // Return the input as an integer
     }
-}
 
-    public static int leseHoelzer(int zahl) {
-
-        leseZahl(zahl);
-        if (zahl != 1 && zahl != 2 && zahl != 3) {
+    public static int leseHoelzer() {
+        leseZahl();
+        if (menschZug != 1 && menschZug != 2 && menschZug != 3) {
             Ausgabe.zahlNichtImBereich();
-            return leseZahl(zahl);
+            return leseZahl();
         } else {
-            return zahl;
+            return menschZug;
         }
     }
+
 }
