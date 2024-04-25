@@ -25,15 +25,16 @@ public class Spiel {
         Ausgabe.spielStand(anzahl);
         while (this.anzahl > 0) {
             computerZiehen();
-            if (this.anzahl <= 0) {
-                Ausgabe.menschGewinnt();
-                break;
-            }
-            menschenZiehen();
-            if (this.anzahl <= 0) {
+            if (this.anzahl <= 1) {
                 Ausgabe.computerGewinnt();
                 break;
             }
+            menschenZiehen();
+            if (this.anzahl <= 1) {
+                Ausgabe.menschGewinnt();
+                break;
+            }
+
         }
     }
 
@@ -42,8 +43,6 @@ public class Spiel {
     // menschlichen spielers bekannt gegeben werden, sofern der Computer das letzte
     // Hloz nehmen musste
     public void computerZiehen() {
-        // Call the method to calculate the computer's move
-
         int computerZug = 0;
         computerZug = berechneComputerZug(computerZug);
         int gezogeneHoelzer = computerZug;
@@ -53,23 +52,35 @@ public class Spiel {
     }
 
     public void menschenZiehen() {
-        int menschZug = Eingabe.leseHoelzer();
-
-        if (menschZug > this.anzahl) {
-            Ausgabe.zugNichtMoeglich();
-            // menschenZiehen();
-            Eingabe.leseHoelzer();
-        } else {
-            anzahl -= menschZug;
-            Ausgabe.menschZug(menschZug, anzahl);
-
-        }
+        int menschZug;
+        do {
+            menschZug = Eingabe.leseHoelzer();
+            if (menschZug > this.anzahl) {
+                Ausgabe.zugNichtMoeglich();
+            } else if (menschZug < 1 || menschZug > 3) {
+                Ausgabe.zahlNichtImBereich();
+            } else {
+                anzahl -= menschZug;
+                Ausgabe.menschZug(menschZug, this.anzahl);
+            }
+        } while (menschZug < 1 || menschZug > 3 || menschZug > this.anzahl);
     }
-
-    // ziehen der Spieler und computer abwechselnd bis 1 Streichholz uebrig ist
+    //
 
     // berechnet den Zug des Computers um das Spiel zu gewinnen,duerfen 1,2 oder 3
     public int berechneComputerZug(int computerZug) {
-        return computerZug = this.anzahl % 3 + 1;
+        if (this.anzahl % 4 == 0) {
+            computerZug = 3;
+        }
+        if (this.anzahl % 4 == 1) {
+            computerZug = 1;
+        }
+        if (this.anzahl % 4 == 2) {
+            computerZug = 1;
+        }
+        if (this.anzahl % 4 == 3) {
+            computerZug = 2;
+        }
+        return computerZug;
     }
 }

@@ -13,15 +13,12 @@ public class Eingabe {
             Ausgabe.keineZahl();
             // menschZug = leseZahl();
         }
+        scanner.close(); // Close the scanner
         return menschZug;
     }
 
     public static int leseHoelzer() {
         int menschZug = leseZahl();
-        if (menschZug < 1 || menschZug > 3) {
-            Ausgabe.zahlNichtImBereich();
-            // menschZug = leseZahl();
-        }
         return menschZug;
     }
 }
