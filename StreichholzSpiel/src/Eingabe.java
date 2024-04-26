@@ -13,7 +13,7 @@ public class Eingabe {
             Ausgabe.keineZahl();
             // menschZug = leseZahl();
         }
-        scanner.close(); // Close the scanner
+        // scanner.close(); // Close the scanner
         return menschZug;
     }
 

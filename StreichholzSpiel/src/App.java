@@ -3,7 +3,7 @@ public class App {
         // Ausgabe.menschZug(2, 15);
         // Ausgabe.computerZug(3, 10);
 
-        Spiel round1 = new Spiel(18);
+        Spiel round1 = new Spiel(17);
         round1.spielen();
     }
 }

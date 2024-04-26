@@ -23,14 +23,14 @@ public class Spiel {
     // ausgeben (Mensch oder Computer)
     public void spielen() {
         Ausgabe.spielStand(anzahl);
-        while (this.anzahl > 0) {
+        while (this.anzahl > 1) {
             computerZiehen();
-            if (this.anzahl <= 1) {
+            if (this.anzahl == 1) {
                 Ausgabe.computerGewinnt();
                 break;
             }
             menschenZiehen();
-            if (this.anzahl <= 1) {
+            if (this.anzahl == 1) {
                 Ausgabe.menschGewinnt();
                 break;
             }
@@ -43,8 +43,7 @@ public class Spiel {
     // menschlichen spielers bekannt gegeben werden, sofern der Computer das letzte
     // Hloz nehmen musste
     public void computerZiehen() {
-        int computerZug = 0;
-        computerZug = berechneComputerZug(computerZug);
+        int computerZug = berechneComputerZug();
         int gezogeneHoelzer = computerZug;
         anzahl -= gezogeneHoelzer;
         Ausgabe.computerZug(computerZug, this.anzahl);
@@ -53,22 +52,22 @@ public class Spiel {
 
     public void menschenZiehen() {
         int menschZug;
-        do {
-            menschZug = Eingabe.leseHoelzer();
-            if (menschZug > this.anzahl) {
-                Ausgabe.zugNichtMoeglich();
-            } else if (menschZug < 1 || menschZug > 3) {
-                Ausgabe.zahlNichtImBereich();
-            } else {
-                anzahl -= menschZug;
-                Ausgabe.menschZug(menschZug, this.anzahl);
-            }
-        } while (menschZug < 1 || menschZug > 3 || menschZug > this.anzahl);
+
+        menschZug = Eingabe.leseHoelzer();
+        if (menschZug > this.anzahl) {
+            Ausgabe.zugNichtMoeglich();
+        } else if (menschZug < 1 || menschZug > 3) {
+            Ausgabe.zahlNichtImBereich();
+        } else {
+            anzahl -= menschZug;
+            Ausgabe.menschZug(menschZug, this.anzahl);
+        }
     }
     //
 
     // berechnet den Zug des Computers um das Spiel zu gewinnen,duerfen 1,2 oder 3
-    public int berechneComputerZug(int computerZug) {
+    private int berechneComputerZug() {
+        int computerZug = 0;
         if (this.anzahl % 4 == 0) {
             computerZug = 3;
         }
